@@ -1,6 +1,7 @@
 package com.example.richo_han.richonews;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -46,6 +47,10 @@ public class NewsContentActivity extends AppCompatActivity {
             case android.R.id.home:
                 finish();
                 return true;
+            case R.id.action_browser:
+                Uri webPage = Uri.parse(mNews.getUrl());
+                Intent intent = new Intent(Intent.ACTION_VIEW, webPage);
+                startActivity(intent);
             default:
                 return super.onOptionsItemSelected(item);
 

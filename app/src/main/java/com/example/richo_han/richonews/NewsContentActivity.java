@@ -14,8 +14,11 @@ import android.widget.TextView;
 public class NewsContentActivity extends AppCompatActivity {
     public final static String EXTRA_NEWS = "com.example.richo_han.richonews.EXTRA_NEWS";
     public final static String EXTRA_NEWS_INDEX = "com.example.richo_han.richonews.EXTRA_NEWS_INDEX";
+    public final static String EXTRA_NEWS_RATING = "com.example.richo_han.richonews.EXTRA_NEWS_RATING";
+
     News mNews;
     int mIndex;
+    int mRating = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +53,7 @@ public class NewsContentActivity extends AppCompatActivity {
             case android.R.id.home:
                 Intent intent = new Intent();
                 intent.putExtra(EXTRA_NEWS_INDEX, mIndex);
+                intent.putExtra(EXTRA_NEWS_RATING, mRating);
                 setResult(RESULT_OK, intent);
                 finish();
                 return true;

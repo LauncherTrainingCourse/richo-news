@@ -3,6 +3,7 @@
     package="com.example.richo_han.richonews">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher_news"
@@ -16,6 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".NewsContentActivity"></activity>
     </application>
 
 </manifest>

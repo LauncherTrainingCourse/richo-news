@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.RatingBar;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    static final int RATING_REQUEST = 1;
     NewsAdapter adapter;
 
     @Override
@@ -32,10 +34,23 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 News news = (News) adapterView.getItemAtPosition(i);
                 Intent intent = new Intent(view.getContext(), NewsContentActivity.class);
+                intent.putExtra(NewsContentActivity.EXTRA_NEWS_INDEX, i);
                 intent.putExtra(NewsContentActivity.EXTRA_NEWS, news);
-                startActivity(intent);
+                startActivityForResult(intent, RATING_REQUEST);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == RATING_REQUEST) {
+            if(resultCode == RESULT_OK) {
+                ListView listView = (ListView) findViewById(R.id.news_list);
+                int index = data.getIntExtra(NewsContentActivity.EXTRA_NEWS_INDEX, 0);
+                View view = listView.getChildAt(index);
+                ((RatingBar) view.findViewById(R.id.ratingBar)).setRating(3);
+            }
+        }
     }
 
     private class AsyncLoadNewsTask extends AsyncTask<Void, Void, Void> {

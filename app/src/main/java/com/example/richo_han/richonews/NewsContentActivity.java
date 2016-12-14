@@ -13,7 +13,9 @@ import android.widget.TextView;
 
 public class NewsContentActivity extends AppCompatActivity {
     public final static String EXTRA_NEWS = "com.example.richo_han.richonews.EXTRA_NEWS";
+    public final static String EXTRA_NEWS_INDEX = "com.example.richo_han.richonews.EXTRA_NEWS_INDEX";
     News mNews;
+    int mIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,7 @@ public class NewsContentActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         mNews = intent.getParcelableExtra(EXTRA_NEWS);
+        mIndex = intent.getIntExtra(EXTRA_NEWS_INDEX, 0);
 
         ((TextView) findViewById(R.id.news_title)).setText(mNews.getTitle());
         String meta = mNews.getAuthor() + " / " + mNews.getPublishedAt().split("T")[0];
@@ -45,12 +48,15 @@ public class NewsContentActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
+                Intent intent = new Intent();
+                intent.putExtra(EXTRA_NEWS_INDEX, mIndex);
+                setResult(RESULT_OK, intent);
                 finish();
                 return true;
             case R.id.action_browser:
                 Uri webPage = Uri.parse(mNews.getUrl());
-                Intent intent = new Intent(Intent.ACTION_VIEW, webPage);
-                startActivity(intent);
+                Intent webIntent = new Intent(Intent.ACTION_VIEW, webPage);
+                startActivity(webIntent);
             default:
                 return super.onOptionsItemSelected(item);
         }

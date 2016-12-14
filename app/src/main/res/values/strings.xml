@@ -5,7 +5,8 @@
     <string name="news_date">2016-12-13</string>
     <string name="news_meta">Josh Constine / 2016-12-13</string>
     <string name="news_description">Google dropped a single National Security Letter into its most recent transparency report without much fanfare, but today the company published eight more..</string>
-    
+
+    <string name="action_rate">Rate</string>
     <string name="action_browser">Open in browser</string>
     <string name="action_share">Share</string>
 </resources>

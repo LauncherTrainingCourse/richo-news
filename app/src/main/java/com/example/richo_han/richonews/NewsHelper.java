@@ -48,9 +48,6 @@ public class NewsHelper {
                 JSONArray array = object.getJSONArray("articles");
                 Gson gson = new Gson();
                 News[] newsList = gson.fromJson(array.toString(), News[].class);
-                for (News news : newsList) {
-                    System.out.println(news.author);
-                }
                 list = newsList;
             } catch (JSONException e){
                 e.printStackTrace();

@@ -19,7 +19,7 @@ public class NewsContentActivity extends AppCompatActivity implements RatingDial
 
     News mNews;
     int mIndex;
-    float mRating = 3;
+    float mRating = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

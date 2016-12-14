@@ -18,7 +18,7 @@ public class NewsContentActivity extends AppCompatActivity {
 
     News mNews;
     int mIndex;
-    int mRating = 3;
+    float mRating = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -8,21 +8,21 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="NewsTitleFont" parent="AppTheme">
+    <style name="NewsItemTitleFont" parent="AppTheme">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">#272727</item>
         <item name="android:textSize">16dp</item>
     </style>
 
-    <style name="NewsAuthorFont" parent="AppTheme">
+    <style name="NewsItemAuthorFont" parent="AppTheme">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">#5B5B5B</item>
         <item name="android:textSize">12dp</item>
     </style>
 
-    <style name="NewsDateFont" parent="AppTheme">
+    <style name="NewsItemDateFont" parent="AppTheme">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">#5B5B5B</item>

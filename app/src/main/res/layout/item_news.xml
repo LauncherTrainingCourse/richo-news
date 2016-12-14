@@ -28,17 +28,17 @@
 
         <TextView
             android:id="@+id/tvTitle"
-            style="@style/NewsTitleFont"
+            style="@style/NewsItemTitleFont"
             android:text="@string/news_title" />
 
         <TextView
             android:id="@+id/tvAuthor"
-            style="@style/NewsAuthorFont"
+            style="@style/NewsItemAuthorFont"
             android:text="@string/news_author" />
 
         <TextView
             android:id="@+id/tvDate"
-            style="@style/NewsDateFont"
+            style="@style/NewsItemDateFont"
             android:text="@string/news_date" />
     </LinearLayout>
 </LinearLayout>

@@ -1,12 +1,21 @@
 package com.example.richo_han.richonews;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.facebook.drawee.view.SimpleDraweeView;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 
 /**
@@ -26,6 +35,10 @@ public class NewsAdapter extends ArrayAdapter<News> {
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_news, parent, false);
         }
+
+        Uri uri = Uri.parse(news.getUrlToImage());
+        SimpleDraweeView imageView = (SimpleDraweeView) convertView.findViewById(R.id.thumbnail);
+        imageView.setImageURI(uri);
 
         ((TextView) convertView.findViewById(R.id.tvTitle)).setText(news.getTitle());
         ((TextView) convertView.findViewById(R.id.tvAuthor)).setText(news.getAuthor());

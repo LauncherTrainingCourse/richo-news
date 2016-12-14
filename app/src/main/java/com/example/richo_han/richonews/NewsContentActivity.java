@@ -53,7 +53,6 @@ public class NewsContentActivity extends AppCompatActivity {
                 startActivity(intent);
             default:
                 return super.onOptionsItemSelected(item);
-
         }
     }
 }

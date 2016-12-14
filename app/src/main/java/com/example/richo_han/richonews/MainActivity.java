@@ -1,6 +1,5 @@
 package com.example.richo_han.richonews;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +11,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    public final static String EXTRA_NEWS = "com.example.richo_han.richonews.EXTRA_NEWS";
     NewsAdapter adapter;
 
     @Override
@@ -31,7 +31,9 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                News news = (News) adapterView.getItemAtPosition(i);
                 Intent intent = new Intent(view.getContext(), NewsContentActivity.class);
+                intent.putExtra(EXTRA_NEWS, news);
                 startActivity(intent);
             }
         });

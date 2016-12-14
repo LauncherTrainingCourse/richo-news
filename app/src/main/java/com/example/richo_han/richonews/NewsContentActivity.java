@@ -3,6 +3,7 @@ package com.example.richo_han.richonews;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -11,7 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-public class NewsContentActivity extends AppCompatActivity {
+public class NewsContentActivity extends AppCompatActivity implements RatingDialogFragment.RatingDialogListener{
     public final static String EXTRA_NEWS = "com.example.richo_han.richonews.EXTRA_NEWS";
     public final static String EXTRA_NEWS_INDEX = "com.example.richo_han.richonews.EXTRA_NEWS_INDEX";
     public final static String EXTRA_NEWS_RATING = "com.example.richo_han.richonews.EXTRA_NEWS_RATING";
@@ -57,6 +58,10 @@ public class NewsContentActivity extends AppCompatActivity {
                 setResult(RESULT_OK, intent);
                 finish();
                 return true;
+            case R.id.action_rating:
+                RatingDialogFragment dialog = new RatingDialogFragment();
+                dialog.show(getSupportFragmentManager(), "RatingDialogFragment");
+                return true;
             case R.id.action_browser:
                 Uri webPage = Uri.parse(mNews.getUrl());
                 Intent webIntent = new Intent(Intent.ACTION_VIEW, webPage);
@@ -64,5 +69,10 @@ public class NewsContentActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void onDialogPositiveClick(DialogFragment dialog, float rating) {
+        mRating = rating;
     }
 }

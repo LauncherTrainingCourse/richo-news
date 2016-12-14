@@ -11,9 +11,6 @@ public class News implements Parcelable{
 
     public String author, title, description, url, urlToImage, publishedAt;
 
-    public News() {
-    }
-
     public String getAuthor() {
         return author;
     }
@@ -72,9 +69,9 @@ public class News implements Parcelable{
         out.writeString(this.author);
         out.writeString(this.title);
         out.writeString(this.description);
-        out.writeString(this.publishedAt);
         out.writeString(this.url);
         out.writeString(this.urlToImage);
+        out.writeString(this.publishedAt);
     }
 
     public static final Parcelable.Creator<News> CREATOR
@@ -92,11 +89,11 @@ public class News implements Parcelable{
     };
 
     public News(Parcel in){
-        this.title = in.readString();
         this.author = in.readString();
+        this.title = in.readString();
         this.description = in.readString();
-        this.publishedAt = in.readString();
         this.url = in.readString();
         this.urlToImage = in.readString();
+        this.publishedAt = in.readString();
     }
 }

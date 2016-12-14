@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">RichoNews</string>
+    <string name="news_title">Imgur matures into a meme social network with chat and following</string>
+    <string name="news_author">Josh Constine</string>
+    <string name="news_date">2016-12-13</string>
 </resources>

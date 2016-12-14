@@ -19,7 +19,6 @@ public class NewsContentActivity extends AppCompatActivity implements RatingDial
 
     News mNews;
     int mIndex;
-    float mRating = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,10 +51,6 @@ public class NewsContentActivity extends AppCompatActivity implements RatingDial
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                Intent intent = new Intent();
-                intent.putExtra(EXTRA_NEWS_INDEX, mIndex);
-                intent.putExtra(EXTRA_NEWS_RATING, mRating);
-                setResult(RESULT_OK, intent);
                 finish();
                 return true;
             case R.id.action_rating:
@@ -73,6 +68,10 @@ public class NewsContentActivity extends AppCompatActivity implements RatingDial
 
     @Override
     public void onDialogPositiveClick(DialogFragment dialog, float rating) {
-        mRating = rating;
+        Intent intent = new Intent();
+        intent.putExtra(EXTRA_NEWS_INDEX, mIndex);
+        intent.putExtra(EXTRA_NEWS_RATING, rating);
+        setResult(RESULT_OK, intent);
+        finish();
     }
 }

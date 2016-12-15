@@ -76,6 +76,19 @@ public class NewsContentActivity extends AppCompatActivity implements RatingDial
                 if(isIntentSafe) {
                     startActivity(webIntent);
                 }
+                return true;
+            case R.id.action_share:
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, mNews.getTitle());
+                shareIntent.putExtra(Intent.EXTRA_TEXT, mNews.getUrl());
+
+                String title = getResources().getString(R.string.sharing_title);
+
+                if(shareIntent.resolveActivity(getPackageManager()) != null){
+                    startActivity(Intent.createChooser(shareIntent, title));
+                }
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

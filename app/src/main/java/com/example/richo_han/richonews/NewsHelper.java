@@ -26,7 +26,7 @@ public class NewsHelper {
                 .scheme("https")
                 .host("newsapi.org")
                 .addPathSegment("/v1/articles")
-                .addQueryParameter("source", "techcrunch")
+                .addQueryParameter("source", "business-insider")
                 .addQueryParameter("apiKey", "63b4ee01b2df4c5f8d36e91e8e3e5c8f")
                 .build();
 

@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 ListView listView = (ListView) findViewById(R.id.news_list);
                 int index = data.getIntExtra(NewsContentActivity.EXTRA_NEWS_INDEX, 0);
                 float rating = data.getFloatExtra(NewsContentActivity.EXTRA_NEWS_RATING, 0);
-                View view = listView.getChildAt(index);
+                View view = listView.getChildAt(index - listView.getFirstVisiblePosition());
                 ((RatingBar) view.findViewById(R.id.ratingBar)).setRating(rating);
             }
         }

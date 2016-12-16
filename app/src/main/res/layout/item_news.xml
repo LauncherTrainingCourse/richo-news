@@ -17,8 +17,7 @@
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/thumbnail"
             android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/ic_launcher_news" />
+            android:layout_height="80dp" />
     </LinearLayout>
 
     <LinearLayout

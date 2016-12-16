@@ -15,6 +15,8 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.drawee.view.SimpleDraweeView;
+
 import java.util.List;
 
 public class NewsContentActivity extends AppCompatActivity implements RatingDialogFragment.RatingDialogListener{
@@ -38,6 +40,10 @@ public class NewsContentActivity extends AppCompatActivity implements RatingDial
         String meta = mNews.getAuthor() + " / " + mNews.getPublishedAt().split("T")[0];
         ((TextView) findViewById(R.id.news_meta)).setText(meta);
         ((TextView) findViewById(R.id.news_description)).setText(mNews.getDescription());
+
+        Uri uri = Uri.parse(mNews.getUrlToImage());
+        SimpleDraweeView imageView = (SimpleDraweeView) findViewById(R.id.news_image);
+        imageView.setImageURI(uri);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
